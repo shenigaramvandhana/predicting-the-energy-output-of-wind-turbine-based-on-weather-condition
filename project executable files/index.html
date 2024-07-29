@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WIND ENERGY</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       
+        div>img{
+            height: 98%;
+            width: 98%;
+            z-index: -1;
+            opacity: .8;
+        }
+        #front{
+            position: absolute;
+            top: 20px;
+           
+        
+        }
+       h5{
+        text-align: center;
+        font-size: 30px;
+       
+        padding: 2px;
+        filter: drop-shadow(2px 2px 2px white);
+
+       }
+       label{
+        font-size: 18px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       }
+       label::after{
+        content: " :";
+       }
+       input{
+        margin-bottom: 3px;
+        background-color: transparent;
+        outline: none;
+        border: 0.5px solid darkblue;
+        width: 100px;
+        height: 25px;
+        
+       }
+       #heading{
+       text-align: center;
+        
+       }
+
+       input:hover{
+        box-shadow: 1px 1px 2px rgb(105, 83, 83);
+        border-radius: 3px 0 3px 0;
+        
+
+       }
+       #city{
+        width: 70%;
+        border: 2px;
+        box-shadow: 2px 2px 2px black;
+       background-color: aliceblue;
+        height: 30px;
+        color: rgb(1, 16, 18);
+        font-size: 18px;
+       }
+       input[type="button"]{
+        height: 30px;
+        background-color: rgb(44, 4, 82);
+        color: white;
+        font-weight: bold;
+       }
+       h4{
+        color: white;
+        filter: drop-shadow(1px 1px 1px rgb(39, 10, 10));
+       }
+      
+       
+     
+    </style>
+</head>
+<body>
+    <div>
+        
+        <img src="\static\windbg.jpg" alt="">
+
+    </div>
+    <div id="front">
+       <div id="heading">
+        <h5>WIND ENERGY PREDICTION</h5>
+       </div>
+
+       <form action="{{url_for('predict_city')}}" method="post">
+        <div class="search">
+          <input type="search" name="cityname" id="city" placeholder="Search city here..">
+        <b><button type="submit" value="predict_city">Predict</button></b>
+          
+  
+         </div>
+       </form>
+       
+
+       <div>
+
+                <h4>Enter weather details to predict to predict wind energy output </h4>
+                
+                <form action="{{url_for('submit')}}" method="post">
+                <table>
+                   
+                    <tr>
+                        <td>
+                          <label for="">Wind Speed</label>
+                        </td>
+                        <td>
+                          <input type="number" name="ws">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                          <label for="">Wind direction</label>
+                        </td>
+                        <td>
+                          <input type="number" name="wd">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                          <label for="">Max Temperature</label>
+                        </td>
+                        <td>
+                          <input type="number" name="mt">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                          <label for="">Wind Gust</label>
+                        </td>
+                        <td>
+                          <input type="number" name="wg">
+                        </td>
+                    </tr>
+                   
+                   
+                    <tr>
+                        <td>
+                          <label for="">Humidity</label>
+                        </td>
+                        <td>
+                          <input type="number" name="h">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                          <label for="">Pressure</label>
+                        </td>
+                        <td>
+                          <input type="number" name="p">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit" value="Predict">Predict</button></td>
+                    </tr>
+                </table>
+                </form>
+
+    </div>
+    
+</body>
+</html>
